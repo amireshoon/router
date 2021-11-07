@@ -66,6 +66,18 @@ class Router extends \Bramus\Router\Router {
     }
     
     /**
+     * Shorthand for a route accessed using any method.
+     * Same functionality as all function
+     * 
+     * @param string          $pattern A route pattern such as /about/system
+     * @param object|callable $fn      The handling function to be executed
+     */
+    public function any($pattern, $fn)
+    {
+        $this->match('GET|POST|PUT|DELETE|OPTIONS|PATCH|HEAD', $pattern, $fn);
+    }
+    
+    /**
      * Get request body
      * 
      * @since   2.0
