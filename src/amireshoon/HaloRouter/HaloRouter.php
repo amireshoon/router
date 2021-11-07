@@ -54,6 +54,18 @@ class Router extends \Bramus\Router\Router {
     }
 
     /**
+     * Redirect current route to another route
+     * 
+     * @since   1.0
+     * @param   string  route patternt
+     * @param   int     redirect code, default 302
+     */
+    public function redirect( $path, $code = 302 ) {
+        header( "Location: {$path}", true, $code );
+        exit;
+    }
+    
+    /**
      * Get request body
      * 
      * @since   2.0
